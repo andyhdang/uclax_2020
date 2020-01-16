@@ -1,0 +1,64 @@
+.Nav {
+    background-color: teal;
+    padding: 20px;
+
+    .hamburger {
+        display: block;
+        background-color: orange;
+    }
+
+    .links {
+        background-color: yellow;
+        text-align: center;
+        padding: 10px;
+
+        a {
+            background-color: white;
+            color: black;
+            
+
+            display: block;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 10px;
+
+            text-decoration: none;
+            text-transform: uppercase;
+
+            transition: all 1s;
+
+            //hoverstate
+            &:hover {
+                background-color: blue;
+                border: black solid 5px;
+            
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .Nav {
+        background-color: purple;
+        
+
+        .links {
+            a {
+                display: inline-block;
+            }
+        }
+
+        .hamburger {
+            display: none;
+        }
+        
+    }
+
+}
+
+@media screen and (min-width: 800x) {
+    .Nav {
+        background-color: purple;
+    }
+}
+
