@@ -1,5 +1,5 @@
-//useState is part of React App
-import React, { useState } from 'react'
+//useState and useEffect is part of React App
+import React, { useState, useEffect } from 'react'
 import './Nav.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,10 +9,14 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 const Nav = () => {
 
     //showMenu and updateShowMenu are made up names
-    const [showMenu, updateShowMenu] = useState (true)
+    //state variables 
+    const [showMenu, updateShowMenu] = useState (true);
+    const [isSmall, updateIsSmall] = useState(true);
 
+    //Functions / Methods
+    //Hamburger Click
     const handleHamburgerClick = () => {
-        console.log ('You hit the hamburger')
+        console.log ('You hit the hamburger');
 
         let newShowMenu;
 
@@ -22,23 +26,47 @@ const Nav = () => {
             newShowMenu = true;
         }
 
-        updateShowMenu(newShowMenu)
-        
+        updateShowMenu(newShowMenu);
 
     }
+    
+    // Checking for Small view or Medium/Large
+    const handleIsSmall = () => {
+        console.log('How Wide Window: ', window.innerWidth, isSmall);
+
+        if (window.innerWidth > 599) {
+            updateIsSmall(false); //not small
+            updateShowMenu(true); //show menu
+        } else {
+            updateIsSmall(true); //is small
+            updateShowMenu(false); //hide menu
+        }
+
+    }
+
+    //useEffect so it doesnt keep reassigning the listener
+    useEffect(()=> {
+        window.addEventListener('resize', handleIsSmall);
+        handleIsSmall(); //fires off when page first loads
+    }, []);
+   
+
     return (
 
         //JSX
-        <nav className={'Nav'}>
-            
-            <div className="hamburger" onClick = {handleHamburgerClick}> 
+        <nav className='Nav'>
 
-                <FontAwesomeIcon icon ={faBars}></FontAwesomeIcon>
-                
-            </div>
-                
             {
-            
+                isSmall &&
+                // <button onClick={ handleIsSmall }>Clickme</button>
+                <div className="hamburger" onClick = {handleHamburgerClick}> 
+                    <FontAwesomeIcon icon ={faBars}></FontAwesomeIcon>
+                </div>
+
+            }
+
+            {
+             //"if showMenu is true" show below
                 showMenu &&
 
                 <div className="links">
