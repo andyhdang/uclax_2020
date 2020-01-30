@@ -59,6 +59,9 @@
     .Nav {
         background-color: rgb(255, 194, 81);
         
+        .hamburger {
+            display: none;
+        }
 
         .links {
             a {
