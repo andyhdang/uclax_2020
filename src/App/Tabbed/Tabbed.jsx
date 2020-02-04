@@ -23,15 +23,19 @@ const tableItems = [
 
 const Tabbed = () => {
 
-    const [currentTab, setCurrentTab] = useState (tableItems[1]);
+    const [currentTab, setCurrentTab] = useState (tableItems[0]);
+
+    const isAbout = (currentTab.title === 'About') ? 'tab active': 'tab';
+    const isMission = (currentTab.title === 'Mission') ? 'tab active': 'tab';
+    const isVision = (currentTab.title === 'Vision') ? 'tab active': 'tab';
 
 
     return (
         <div className={ 'Tabbed' }>
             <div className="tabs">
-                <div onClick={ () => {setCurrentTab(tableItems[0] ) } } className="tab">About</div>
-                <div onClick={ () => {setCurrentTab(tableItems[1] ) } } className="tab">Mission</div>
-                <div onClick={ () => {setCurrentTab(tableItems[2] ) } } className="tab">Vision</div>
+                <div onClick={ () => {setCurrentTab(tableItems[0] ) } } className= { isAbout }>About</div>
+                <div onClick={ () => {setCurrentTab(tableItems[1] ) } } className= { isMission }>Mission</div>
+                <div onClick={ () => {setCurrentTab(tableItems[2] ) } } className= { isVision }>Vision</div>
             </div>
 
             <div className="content">
