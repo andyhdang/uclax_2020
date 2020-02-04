@@ -39,7 +39,7 @@ const Tabbed = () => {
             </div>
 
             <div className="content">
-                <img src={currentTab.img}/>
+                <img src={currentTab.img} alt={ currentTab.title }/>
                 <h2>{currentTab.title}</h2>
                 <p>{currentTab.text}</p>
             </div>
