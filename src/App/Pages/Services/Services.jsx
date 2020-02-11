@@ -22,7 +22,11 @@ const Services = () => {
     return (
         <div className="Pages Services">
             Services
-            <TheServices />
+            <div className="container">
+
+                <TheServices /> 
+            </div>
+           
         </div>
 
     )

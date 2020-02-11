@@ -17,7 +17,12 @@ const Staff = () => {
     return (
         <div className="Pages Staff">
             Staff Goes Here.
-            <StaffMembers />
+
+            <div className="container">
+
+                <StaffMembers />
+            </div>
+            
         </div>
     )
 }
