@@ -57,7 +57,7 @@ const ContactForm = () => {
                    message: messageRef.current.value,
                }
 
-               API.post('sendmail', postData).then((results)=> {
+               API.post('email/send', postData).then((results)=> {
                    console.log('Posting the data', results);
                });
 
@@ -91,6 +91,7 @@ const ContactForm = () => {
             case 'space:':
             case 'enter':
                 handleFormSubmit();
+                break;
             default:
                 return true;
         }
